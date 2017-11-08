@@ -59,7 +59,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
                                                      processParameters = cms.vstring('SoftQCD:nonDiffractive = on',
                                                                                      'PTFilter:filter = on', # this turn on the filter
                                                                                      'PTFilter:quarkToFilter = 5', # PDG id of q quark (can be any other)
-                                                                                     'PTFilter:scaleToFilter = 1.0’ ),
+                                                                                     'PTFilter:scaleToFilter = 1.0' ),
                                                      parameterSets = cms.vstring('pythia8CommonSettings',
                                                                                  'pythia8CP5Settings',
                                                                                  'processParameters',
