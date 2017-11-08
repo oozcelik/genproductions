@@ -37,14 +37,6 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
                                                      )
                          )
 
-generator.PythiaParameters.processParameters.extend(EvtGenExtraParticles)
-
-configurationMetadata = cms.untracked.PSet(
-    version = cms.untracked.string('$Revision: 1.1 $'),
-    name = cms.untracked.string('$Source: Configuration/Generator/python/PYTHIA8_Bd2JpsiKstar_EtaPtFilter_CUEP8M1_13TeV_cff.py  $'),
-    annotation = cms.untracked.string('Summer16: Pythia8+EvtGen130 generation of Bd --> Jpsi(-> mu+ mu-) K*(892)(-> K+ pi-) , 13TeV, Tune CUETP8M1')
-    )
-
 ###########
 # Filters #
 ###########
