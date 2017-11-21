@@ -8,14 +8,14 @@ generator = cms.EDFilter(
     pythiaHepMCVerbosity = cms.untracked.bool(False),
     maxEventsToPrint = cms.untracked.int32(0),
     pythiaPylistVerbosity = cms.untracked.int32(0),
-    filterEfficiency = cms.untracked.double(1.300e-02),
+    filterEfficiency = cms.untracked.double(5.750e-02),
     crossSection = cms.untracked.double(540000000.),
     comEnergy = cms.double(13000.0),
     ExternalDecays = cms.PSet(
         EvtGen130 = cms.untracked.PSet(
             decay_table = cms.string('GeneratorInterface/EvtGenInterface/data/DECAY_2014_NOLONGLIFE.DEC'),
             particle_property_file = cms.FileInPath('GeneratorInterface/EvtGenInterface/data/evt_2014.pdl'),
-            user_decay_file = cms.vstring('GeneratorInterface/EvtGenInterface/data/Bd_JpsiKstar_mumuKpi.dec'),
+            user_decay_file = cms.vstring('GeneratorInterface/EvtGenInterface/data/Bd_mumu.dec'),
             list_forced_decays = cms.vstring('MyB0', 'Myanti-B0'),
             operates_on_particles = cms.vint32(),
             convertPythiaCodes = cms.untracked.bool(False),
@@ -45,29 +45,15 @@ bfilter = cms.EDFilter(
     ParticleID = cms.untracked.int32(511)
 )
 
-jpsifilter = cms.EDFilter(
+decayfilter = cms.EDFilter(
     "PythiaDauVFilter",
-    MotherID = cms.untracked.int32(511),
-    ParticleID = cms.untracked.int32(443),
+    verbose         = cms.untracked.int32(1),
     NumberDaughters = cms.untracked.int32(2),
-    DaughterIDs = cms.untracked.vint32(13, -13),
-    MinPt = cms.untracked.vdouble(3.5, 3.5),
-    MinEta = cms.untracked.vdouble(-2.5, -2.5),
-    MaxEta = cms.untracked.vdouble(2.5, 2.5),
-    verbose = cms.untracked.int32(1)
+    ParticleID      = cms.untracked.int32(511),
+    DaughterIDs     = cms.untracked.vint32(13, -13),
+    MinPt           = cms.untracked.vdouble(3.5, 3.5),
+    MinEta          = cms.untracked.vdouble(-2.5, -2.5),
+    MaxEta          = cms.untracked.vdouble( 2.5,  2.5)
 )
 
-kstarfilter = cms.EDFilter(
-    "PythiaDauVFilter",
-    MotherID = cms.untracked.int32(511),
-    ParticleID = cms.untracked.int32(313),
-    NumberDaughters = cms.untracked.int32(2),
-    DaughterIDs = cms.untracked.vint32(321, -211),
-    MinPt = cms.untracked.vdouble(0.4, 0.4),
-    MinEta = cms.untracked.vdouble(-2.5, -2.5),
-    MaxEta = cms.untracked.vdouble(2.5, 2.5),
-    verbose = cms.untracked.int32(1)
-)
-
-
-ProductionFilterSequence = cms.Sequence(generator*bfilter*jpsifilter*kstarfilter)
+ProductionFilterSequence = cms.Sequence(generator*bfilter*decayfilter)

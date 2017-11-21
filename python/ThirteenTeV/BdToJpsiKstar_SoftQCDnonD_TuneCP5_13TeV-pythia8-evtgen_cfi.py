@@ -8,7 +8,7 @@ generator = cms.EDFilter(
     pythiaHepMCVerbosity = cms.untracked.bool(False),
     maxEventsToPrint = cms.untracked.int32(0),
     pythiaPylistVerbosity = cms.untracked.int32(0),
-    filterEfficiency = cms.untracked.double(1.300e-02),
+    filterEfficiency = cms.untracked.double(7.010e-01),
     crossSection = cms.untracked.double(540000000.),
     comEnergy = cms.double(13000.0),
     ExternalDecays = cms.PSet(
@@ -51,9 +51,9 @@ jpsifilter = cms.EDFilter(
     ParticleID = cms.untracked.int32(443),
     NumberDaughters = cms.untracked.int32(2),
     DaughterIDs = cms.untracked.vint32(13, -13),
-    MinPt = cms.untracked.vdouble(3.5, 3.5),
-    MinEta = cms.untracked.vdouble(-2.5, -2.5),
-    MaxEta = cms.untracked.vdouble(2.5, 2.5),
+    MinPt = cms.untracked.vdouble(-99., -99.),
+    MinEta = cms.untracked.vdouble(-9999., -9999.),
+    MaxEta = cms.untracked.vdouble(9999., 9999.),
     verbose = cms.untracked.int32(1)
 )
 
@@ -63,9 +63,9 @@ kstarfilter = cms.EDFilter(
     ParticleID = cms.untracked.int32(313),
     NumberDaughters = cms.untracked.int32(2),
     DaughterIDs = cms.untracked.vint32(321, -211),
-    MinPt = cms.untracked.vdouble(0.4, 0.4),
-    MinEta = cms.untracked.vdouble(-2.5, -2.5),
-    MaxEta = cms.untracked.vdouble(2.5, 2.5),
+    MinPt = cms.untracked.vdouble(-99., -99.),
+    MinEta = cms.untracked.vdouble(-9999., -9999.),
+    MaxEta = cms.untracked.vdouble(9999., 9999.),
     verbose = cms.untracked.int32(1)
 )
 
